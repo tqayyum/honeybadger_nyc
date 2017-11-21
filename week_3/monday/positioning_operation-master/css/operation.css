@@ -4,8 +4,34 @@ body {
 }
 
 .operation {
-  background-color: white;
-  margin: 0 auto;
-  padding: 10px;
-  width: 400px;
+	
+	background-color: white;
+	margin: 0 auto;
+	padding: 10px;
+	width: 400px;
+	position: relative;
+}
+.breadbasket {
+	position: absolute;
+	top: 440px;
+	left: 202px;
+}
+
+.butterflies {
+	position: absolute;
+	top: 333px;
+	left: 226px;
+
+}
+
+.wishbone {
+	position: absolute;
+	top: 193px;
+	left: 184px;
+}
+
+.heart {
+	position: absolute;
+	top: 219px;
+	left: 248px;
 }
