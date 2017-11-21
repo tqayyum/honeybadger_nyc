@@ -1,0 +1,15 @@
+- Organize your favorite books
+mkdir my-favorite-things
+cd my-favorite-things
+mkdir books
+mkdir mark-twain
+touch mark-twain
+sublime.
+echo
+
+- Organize your favorite movies
+mkdir movies
+mkdir actor
+mkdir 
+touch
+mv
