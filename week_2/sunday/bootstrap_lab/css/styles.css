@@ -1,0 +1,8 @@
+.asset-1, .asset-2, .asset-3 {
+	position: relative;
+}
+.headline-1, .headline-2, .headline-3 {
+	position: absolute;
+	bottom: 0;
+	color: white;
+}
