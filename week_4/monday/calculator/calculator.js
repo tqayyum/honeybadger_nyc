@@ -6,7 +6,7 @@ var total = parseInt(val1) + parseInt(val2);
 if (symbol === '+') {
 	alert(val1 += val2);
 }
-/*
+
 if (symbol === '-') {
 	alert(val1 -= val2);
 }
@@ -17,6 +17,5 @@ if (symbol === '/') {
 	alert(val1 /= val2);
 }
 if (symbol === '^') {
-	alert((val1 ^ val2));
+	alert(Math.pow(val1, val2));
 }
-*/
