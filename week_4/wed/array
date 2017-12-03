@@ -1,0 +1,15 @@
+let laptimes = [];
+laptimes.push (53);
+laptimes.push (59);
+laptimes.push (52);
+laptimes.unshift (55);
+laptimes.pop ();
+
+How many laps did Timmy run? 
+laptimes.lenght;
+What is the lap time of Timmy's second lap? 53
+laptimes.[1];
+What is the lap time of Timmy's last lap? 59
+laptimes.[3];
+What is the lap time of Timmy's first lap? 53
+laptimes.[0];
