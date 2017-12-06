@@ -10,11 +10,11 @@ function lengths(getWordsArray) {
 
 	var words = ["hello", "what", "is", "up", "dude"];
 
-	getWordsArray.forEach(function(wordslength){
-		wordslength.length;
+	words.forEach(function(element){
+	console.log(element.length);
 	})
-		
-	return getWordsArray;
+	
+	
 } //look up forEach
 /*****************************************************************************************************************************/
 /*Round 1
@@ -25,15 +25,15 @@ Write a function fizzbuzzer that accepts a single parameter as an argument, a nu
 - The string "FizzBuzz" if the number is evenly divisible by 3 AND 5
 - The string "McClane" if the number is not divisible by 3 OR 5*/
 
-function fizzbuzzer(num) {
-	if (num % 3 === 0) {
+function fizzbuzzer(num) {	
+	if (num % 3 === 0 && num % 5 === 0) {
+		console.log('FizzBuzz');
+	} else if (num % 3 === 0) {
 		console.log('Fizz');
 	} else if (num % 5 === 0) {
 		console.log('Buzz');
-	} else if (num % 3 && 5 === 0) {
-		console.log('FizzBuzz');
-	} else if (num % 3 || 5 === 0) {
-		console.log('FizzBuzz');
+	} else if (num % 3 !== 0 && num % 5 !== 0) {
+		console.log('McClane');
 	}
 }
 /*****************************************************************************************************************************/
