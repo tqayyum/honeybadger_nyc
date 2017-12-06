@@ -15,7 +15,7 @@ function lengths(getWordsArray) {
 	})
 		
 	return getWordsArray;
-}
+} //look up forEach
 /*****************************************************************************************************************************/
 /*Round 1
 Write a function fizzbuzzer that accepts a single parameter as an argument, a number, and will return the following:
@@ -66,7 +66,7 @@ If the accent is not recognized, just return the sentence as-is.
 toonify("daffy", "so you smell like sausage")
 #=> "tho you thmell like thauthage"*/
 
-function toonify(accent) {
+function toonify(accent, sentence) {
 	
 	const checkWord = accent.contains('r');
 	const toonifyThisWord = checkWord.replace('w');
