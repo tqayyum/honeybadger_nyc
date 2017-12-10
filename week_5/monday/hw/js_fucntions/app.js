@@ -12,9 +12,7 @@ function lengths(getWordsArray) {
 	words.forEach(function(element){
 	console.log(element.length);
 	})
-	
-	
-} //look up forEach
+} //Read map
 /*****************************************************************************************************************************/
 /*Round 1
 Write a function fizzbuzzer that accepts a single parameter as an argument, a number, and will return the following:
