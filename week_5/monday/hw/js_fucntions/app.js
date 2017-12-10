@@ -1,4 +1,3 @@
-console.log('loaded')
 /*Round 0
 Write a function lengths that accepts a single parameter as an argument, namely an array of strings.
 The function should return an array of numbers where each number is the length of the corresponding string.
@@ -67,12 +66,14 @@ toonify("daffy", "so you smell like sausage")
 #=> "tho you thmell like thauthage"*/
 
 function toonify(accent, sentence) {
-	
-	const checkWord = accent.contains('r');
-	const toonifyThisWord = checkWord.replace('w');
 
-	return toonifyThisWord;
+	if (accent === 'daffy') {
+		console.log(sentence.replace(new RegExp('s','g'), 'th'));
+	} else if (accent === 'elmer') {
+		console.log(sentence.replace(new RegExp('r','g'), 'w'));
+	}
 }
+
 /*****************************************************************************************************************************/
 /*Round 4
 Write a function digitSum that accepts a number and returns the sum of its digits.
@@ -110,10 +111,14 @@ letterReverse("Put Hans back on the line")
 # => "tuP snaH kcab no eht enil"*/
 function letterReverse(str) {
 	const splitString = str.split('');
-	const reversedStringArray = splitString.join();
-	const joinStringArray = reversedStringArray.reverse();
+	const reversedStringArray = splitString.reverse();
+	const joinStringArray = reversedStringArray.join('');
+	
+	const splitString2 = joinStringArray.split(' ');
+	const reversedStringArray2 = splitString2.reverse();
+	const joinStringArray2 = reversedStringArray2.join(' ');
 
-	return joinStringArray;
+	return joinStringArray2;
 }
 /*****************************************************************************************************************************/
 /*Round 7
@@ -123,11 +128,27 @@ The method should return the longest word in the array. In case of a tie, the me
 longest(["die", "hard", "with", "a", "vengeance"]) # => "vengeance"
 longest(["bruce", "willis", "was", "in", "other", "movies"]) # => "willis"*/
 
+function longest(getLengthOfWords) {
+	var longest1 = ["die", "hard", "with", "a", "vengeance"];
+	var longest2 = ["bruce", "willis", "was", "in", "other", "movies"];
 
+		longest1.forEach(function(a,b){
+		console.log(a);
+		})
+}
+/*	var array1 = [4,8,9,10];
+	var array2 = [4,8,9,10];
+
+	var is_same = (array1.length == array2.length) && array1.every(function(element, index) {
+    return element === array2[index]; 
+});
+*/
 /*****************************************************************************************************************************/
 /*Final Round
 Write a function, called repMaster, that accepts two arguments, input and a function. 
-Input should be able to be used with the function. The function used as an argument must return a string. repMaster should take the result of the string, passed as an argument to the argument function, and return this result with ' proves that I am the rep MASTER!' concatenated to it.
+Input should be able to be used with the function. The function used as an argument must return a string. 
+repMaster should take the result of the string, passed as an argument to the argument function, and 
+return this result with ' proves that I am the rep MASTER!' concatenated to it.
 
 repMaster("Put Hans back on the line", wordReverse) # =>
 "line the on back Hans Put proves that I am the rep MASTER!"
