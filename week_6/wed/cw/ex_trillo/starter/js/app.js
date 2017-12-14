@@ -6,15 +6,38 @@
 window.onload = function () {
 
 	const  removeButton =  document.querySelectorAll('.delete');
+	const  finishButton =  document.querySelectorAll('.finish');
+	const  addInput =  document.getElementById('new-card-text');
 
 	for (let i = 0; i < removeButton.length; i++) {
 		addRemoveListener(removeButton[i]);
-
+	}
+	for (var i = 0; i < finishButton.length; i++) {
+		addFinishListener(finishButton[i]);
 	}
 	
-	function addRemoveListener(node){
-	node.addEventListener('click', function() {
-		this.parentNode.remove();
-	})
+	function addRemoveListener(node) {
+		node.addEventListener('click', function() {
+			this.parentNode.remove();
+		});
 	}
+
+	function addFinishListener(node) {
+		node.addEventListener('click', function() {
+			const parentNode = this.parentNode;
+			this.remove();
+			parentNode.remove();
+			parentNode.classList.remove('todo');
+			parentNode.classList.add('done');
+			document.querySelector('#done-column .card-list').appendChild(parentNode)
+		});
+	}
+
+	function addInputListener(node) {
+		node.addInput('click', function()
+			const parentNode = this.parentNode;
+			this.appendChild(todo);
+			)
+	}
+
 }
