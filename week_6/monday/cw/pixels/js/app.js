@@ -42,4 +42,11 @@ window.onload = function() {
 			}
 		}
 	}
+
+	function redBlue() {
+		createGrid()
+		
+	}
+
+
 };
