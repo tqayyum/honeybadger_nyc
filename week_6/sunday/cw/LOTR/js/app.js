@@ -128,15 +128,32 @@ function leaveTheShire() {
   // grab the hobbits and move them to Rivendell
   console.log('Leave The Shire');
   let getHobbitFromShire = document.getElementById('Rivendell');
-  makeHobbits();
+  let hobbitsList = document.createElement('ul');
+  getHobbitFromShire.appendChild(hobbitsList);
+  hobbits.sort();
+
+  for (let getNameOfHobbits of hobbits) {   
+    let nameOfHobbits = document.createElement('li');
+    nameOfHobbits.innerHTML = getNameOfHobbits;
+    // give each hobbit a class of "hobbit"
+    nameOfHobbits.classList.add('hobbit');
+    // list the hobbits alphabetically.  Maybe use the .sort() method.
+    hobbitsList.appendChild(nameOfHobbits);
+  }
 };
 
 function beautifulStranger() {
   // change the buddy 'Strider' node to "Aragorn"
+  console.log('Beautiful Stranger');
+  let changeStrider = document.getElementsByClassName('buddy');
+  changeStrider[3].innerHTML = 'Aragorn';
 };
 
 function forgeTheFellowShip() {
   // move the hobbits and the buddies to Rivendell
+  
+  makeHobbits();
+  makeBuddies();
   // create a new div called 'the-fellowship'
   // add an h1 with the text 'The Fellowship' to this new div
   // add each hobbit and buddy one at a time to 'the-fellowship'
