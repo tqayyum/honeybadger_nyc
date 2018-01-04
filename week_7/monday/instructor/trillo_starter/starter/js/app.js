@@ -3,6 +3,7 @@
 * As a user, I want to a new card to be added to the todo column when I enter text and click the 'Add Card' button, so I can add new things to my list*/
 
 $(function() {
+<<<<<<< HEAD
   console.log("Hi");
 
   $('.card-list').on('click', '.delete', removeCard);
@@ -37,4 +38,37 @@ $(function() {
    }
   
 
+=======
+  $('.card-list').on('click', '.card .delete', removeCard);
+  $('.card-list').on('click', '.card .finish', finishCard);
+  $('#new-card-button').on('click', addCard);
+>>>>>>> f32cf9ff54be365157b227ef1fd2e7ca6f343148
 });
+
+function removeCard() {
+  // this.parentNode.remove();
+  $(this).parent().remove();
+}
+
+function finishCard() {
+  const $this = $(this);
+  const $listItem = $this.parent();
+  $listItem.prependTo('#done-column .card-list')
+  $this.remove();
+}
+
+function addCard() {
+  const $newCardInput = $('#new-card-text');
+  const inputValue = $newCardInput.val();
+  const newLi = $(`
+    <li class="card todo">
+      ${inputValue}
+      <span class="delete">X</span>
+      <span class="finish">Finish</span>
+    </li>
+  `);
+
+  $newCardInput.val('')
+
+  $('#todo-column .card-list').append(newLi);
+}
