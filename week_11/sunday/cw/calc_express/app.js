@@ -14,7 +14,8 @@ app.get('/add', function(req,res) {
 	const val2 = parseInt(req.param.val2);
 	const result = (val1 + val2).toString;
 
-	res.send( result);
+	
+	res.send(result);
 });
 
 // '/subtract' WHICH WILL TAKE TWO QUERY PARAMS, SUBTRACT THEM TOGETHER, AND SEND THE RESULT TO THE USER
