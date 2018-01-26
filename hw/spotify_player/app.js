@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const request = require('request-promise');
-const { clientId: client_id, clientSecret: client_secret }= require('./api_key');
+const { clientId, clientSecret }= require('./api_key');
 const app = express();
 
 app.use(logger('dev'));
@@ -10,7 +10,7 @@ var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     method: 'POST',
     headers: {
-        'Authorization': 'Basic ' + (new Buffer(`${client_id}:${client_secret}`).toString('base64'))
+        'Authorization': 'Basic ' + (new Buffer(`${clientId}:${clientSecret}`).toString('base64'))
     },
     form: {
         grant_type: 'client_credentials'
@@ -19,9 +19,9 @@ var authOptions = {
 };
 
 function getAccessToken() {
-	return request(authOptions).then(function(data) {
-		return data.access_token;
-	})
+    return request(authOptions).then(function(data) {
+       return data.access_token;
+    })
 }
 
 app.get('/', function(req, res) {
@@ -30,26 +30,28 @@ app.get('/', function(req, res) {
 	})
 });
 
-app.get('/:artist_name', function(req, res) {
-	const artist = req.param.artist;
-	getAccessToken.then(function(access_token) {
-		var option = {
-			url: 'https://api.spotify.com/v1/search',
-			qs: {
-				q: artist,
-				tpye: 'artist'
-			},
-			headers {
-				'Authorization': `Bearer ${access_token}`
-			},
-			json: true
-		};
+app.get('/:artist', function(req, res) {
+    const artist = req.params.artist;
 
-		return request(options).then(function(artistData) {
-			return artistData;
-		}).then(function (data) {
-			res.send(data);
-		})
+    getAccessToken().then(function(access_token) {
+        var options = {
+            url: 'https://api.spotify.com/v1/search',
+            qs: {
+                q: artist,
+                type: 'artist'
+            },
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            },
+            json: true
+        };
+
+        return request(options).then(function(artistData) {
+            return artistData;
+        })
+    })
 });
 
-app.listen(3000);
+app.listen(3000, function() {
+    console.log('Listening on port 3000');
+});
