@@ -1,3 +1,4 @@
+
 const express = require('express');
 const logger = require('morgan');
 const request = require('request-promise');
@@ -51,6 +52,12 @@ app.get('/:artist', function(req, res) {
         })
     })
 });
+
+/*app.get("/tracks", function(req, res) {
+    var tracksOption = {
+        url: '  https://api.spotify.com/v1/tracks/{id}'
+    }
+})*/
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');
