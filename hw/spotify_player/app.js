@@ -58,6 +58,7 @@ function getTopTracks(access_token, id) {
         return topTracks;
     })
 }
+
 function normalizeTrackData(track) {
     const {
         album: {
@@ -93,15 +94,15 @@ app.get('/:artist', function(req, res) {
             return getTopTracks(_access_token, id);
         })
         .then(function(topTracks) {
-            const normalizeTrackData = topTracks.tracks.map(function(track) {
+            const normalizedTracks = topTracks.tracks.map(function(track) {
                 return normalizeTrackData(track);
             })
 
             const result = {
+                tracks: normalizedTracks
             }
-        }
-            //res.send(topTracks);
-            //res.render('artists');
+
+            res.render('artists', result);
         })
 });
 
